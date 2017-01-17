@@ -25,4 +25,4 @@ Please refer the wiki page for documentations.
 
 ## License
 
-Storify is open source under the MIT license. See [LICENSE](https://github.com/sharetribe/sharetribe/blob/master/LICENSE) for details.
+Storify is open source under the MIT license. See [LICENSE](LICENSE) for details.
