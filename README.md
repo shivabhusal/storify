@@ -14,6 +14,10 @@
 - Make sure all the tests pass.
 - Update CHANGELOG.md
 
+## Architecture
+
+<img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>
+
 ## Release
 See RELEASE.md for information about how to make a new release.
 ## Translation
