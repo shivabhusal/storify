@@ -1,0 +1,30 @@
+doctype html
+html.app lang="en"
+  head
+    title #{Config::AppName}
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+
+  body(class="#{self.try(:scope_name)} #{controller_name} #{action_name}")
+
+    .container-fluid
+      ul.nav.nav-tabs
+        li.active role="presentation"
+          a href="#"  Home
+        li role="presentation"
+          a href="#"  Profile
+        li role="presentation"
+          a href="#"  Messages
+      .col-md-2
+        = render 'sidebar'
+      .col-md-9
+        = render "header"
+        = render 'flash_message'
+        section.scrollable.padder
+          .container
+            = yield
+      .footer-container
+        = render 'footer'
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
