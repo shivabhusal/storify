@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: storify_development
+
+test:
+  <<: *default
+  database: storify_test
+
+production:
+  <<: *default
+  host: <%= ENV['STORIFY_DATABASE_HOST'] %> # Because we are supplying password
+  database: <%= ENV['STORIFY_DATABASE'] %>
+  username: <%= ENV['STORIFY_DATABASE_USER_NAME'] %>
+  password: <%= ENV['STORIFY_DATABASE_PASSWORD'] %>
