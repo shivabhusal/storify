@@ -16,10 +16,13 @@
 #  selling_price    :float
 #  cost_price       :float
 #  owner_id         :integer
+#  payload          :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
 
 class Product < ApplicationRecord
+  has_many :pictures, as: :imageable
   mount_uploader :payload, ProductUploader
+  store :metadata, accessors: [:isbn]
 end
