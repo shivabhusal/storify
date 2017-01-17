@@ -1,0 +1,14 @@
+#product.col-md-3.col-sm-6.col-xs-6.product-list-item [data-hook="products_list_item"
+  itemscope=""
+  itemtype="https://schema.org/Product" ]
+
+    .panel.panel-default
+      .panel-body.text-center.product-body
+        a href="/products/ruby-on-rails-tote" itemprop="url"
+          = image_tag product.payload, width: 200
+          br/
+          span.info itemprop="name" title=("Ruby on Rails Tote")  Ruby on Rails Tote
+        br/
+      .panel-footer.text-center
+        span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer"
+          span.price.selling.lead itemprop="price"  $15.99

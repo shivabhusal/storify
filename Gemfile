@@ -34,12 +34,40 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'mini_magick', '~> 4.5.1'
+
+# Use Bootstrap as CSS Framework
+gem 'bootstrap-sass', '~> 3.3.6'
+
+# Use Font Awesome for Awesome Icons
+gem 'font-awesome-rails', '~> 4.6.3.1'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+
+# Slim templates
+gem 'slim-rails', '~> 3.1.1'
+gem 'awesome_print'
+gem 'annotate'
+gem 'carrierwave', '~> 1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails', platform: :mri
+  gem 'rspec-rails', '~> 3.5', require: 'rspec/rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rails-controller-testing'
 end
 
 group :development do
+  gem 'rubocop', require: false
+  gem 'mailcatcher', require: false # Catches emails in localhost, See https://mailcatcher.me/
+  gem 'zeus', require: false
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
