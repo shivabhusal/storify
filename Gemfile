@@ -45,6 +45,8 @@ gem 'font-awesome-rails', '~> 4.6.3.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+gem 'devise'
+
 # Slim templates
 gem 'slim-rails', '~> 3.1.1'
 gem 'awesome_print'

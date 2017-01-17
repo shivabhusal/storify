@@ -1,0 +1,16 @@
+header
+
+  ul.nav.nav-tabs
+    li.active role="presentation"
+      = link_to 'Home', root_path
+    li role="presentation"
+      a href="#"  Profile
+    li role="presentation"
+      a href="#"  Messages
+
+  .pull-right
+    - if current_user.present?
+      = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-info'
+    - else
+      = link_to 'Sign In', new_user_session_path, class: 'btn btn-primary'
+      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info'
