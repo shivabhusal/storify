@@ -1,4 +1,7 @@
+<img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>
+
 # Storify
+
 ## Tech Stack
 - Ruby Version: `2.3.1p112`
 - Rails Version: `5.0.1`
@@ -16,7 +19,7 @@
 
 ## Architecture
 
-<img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>\
+<img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>
 <img src="./doc/schema.png" alt="Drawing" style="width: 200px;"/>
 
 ## Release
