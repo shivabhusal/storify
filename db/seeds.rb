@@ -11,6 +11,8 @@ user = {
     first_name: 'The Admin',
     last_name:  'Last Name',
     gender:     'male',
+    password: 'password',
+    password_confirmation: 'password',
 
 }
 begin

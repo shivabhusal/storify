@@ -42,6 +42,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Use Font Awesome for Awesome Icons
 gem 'font-awesome-rails', '~> 4.6.3.1'
 
+gem 'devise'
+
 # Slim templates
 gem 'slim-rails', '~> 3.1.1'
 gem 'awesome_print'
