@@ -9,18 +9,11 @@ html.app lang="en"
   body(class="#{self.try(:scope_name)} #{controller_name} #{action_name}")
 
     .container-fluid
-      ul.nav.nav-tabs
-        li.active role="presentation"
-          a href="#"  Home
-        li role="presentation"
-          a href="#"  Profile
-        li role="presentation"
-          a href="#"  Messages
+      = render "header"
+      = render 'flash_message'
       .col-md-2
         = render 'sidebar'
       .col-md-9
-        = render "header"
-        = render 'flash_message'
         section.scrollable.padder
           .container
             = yield

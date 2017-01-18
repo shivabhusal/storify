@@ -1,0 +1,23 @@
+.product-page.margin30top
+  .col-md-2
+    = image_tag @product.pictures.first || Config::DefaultCoverFileName,
+        class: 'img-rounded img-responsive'
+  .col-md-10
+    h2 = @product.name
+    .well
+      = @product.description
+    .properties
+      table#product-properties.table.table-striped data-hook=""
+        tbody
+          tr.even
+            td
+              strong SKU
+            td = @product.sku
+          tr.odd
+            td
+              strong Price
+            td = number_to_currency @product.selling_price
+          tr.even
+            td
+              strong Material
+            td 600 Denier Polyester
