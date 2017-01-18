@@ -1,8 +1,6 @@
 .panel.panel-default.margin100top
-  /! Default panel contents
-  .panel-heading Panel heading
+  .panel-heading Categories
   .panel-body
-  /! List group
   ul.list-group
     - @categories.each do |category|
       a href=""
@@ -11,4 +9,3 @@
         - category.children.each do|child_cat|
           a href=""
             li.list-group-item #{child_cat.name}
-

@@ -33,7 +33,7 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-  # config.default_namespace = :admin
+  config.default_namespace = :super_user
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -146,7 +146,7 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_action :do_something_awesome
-
+  config.skip_before_action :set_categories
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.
@@ -189,7 +189,7 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_stylesheet.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
-  #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
+    config.register_stylesheet 'bootstrap.min.css', media: :print
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'

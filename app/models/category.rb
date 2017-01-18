@@ -18,4 +18,5 @@ class Category < ApplicationRecord
   has_many :children, class_name: 'Category', foreign_key: :parent_id
 
   scope :master, -> { where(parent_id: nil) }
+  scope :children, -> { where.not(parent_id: nil) }
 end

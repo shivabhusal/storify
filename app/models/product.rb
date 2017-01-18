@@ -25,6 +25,7 @@ class Product < ApplicationRecord
   has_many :pictures, as: :imageable
   has_many :product_categories
   has_many :categories, through: :product_categories
+  enum status: [:draft, :published]
   mount_uploader :payload, ProductUploader
-  store :metadata, accessors: [:isbn]
+  store :metadata, accessors: [:isbn, :author]
 end
