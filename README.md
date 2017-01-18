@@ -16,7 +16,8 @@
 
 ## Architecture
 
-<img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>
+<img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>\
+<img src="./doc/schema.png" alt="Drawing" style="width: 200px;"/>
 
 ## Release
 See RELEASE.md for information about how to make a new release.
