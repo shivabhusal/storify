@@ -1,7 +1,9 @@
 <img src="./doc/initial_architecture.png" alt="Drawing" style="width: 200px;"/>
 
 # Storify
-
+[![Code Climate](https://codeclimate.com/github/shivabhusal/storify/badges/gpa.svg)](https://codeclimate.com/github/shivabhusal/storify)
+[![Test Coverage](https://codeclimate.com/github/shivabhusal/storify/badges/coverage.svg)](https://codeclimate.com/github/shivabhusal/storify/coverage)
+[![Issue Count](https://codeclimate.com/github/shivabhusal/storify/badges/issue_count.svg)](https://codeclimate.com/github/shivabhusal/storify)
 ## Tech Stack
 - Ruby Version: `2.3.1p112`
 - Rails Version: `5.0.1`

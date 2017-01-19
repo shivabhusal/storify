@@ -6,7 +6,7 @@
 #  name        :string
 #  parent_id   :integer
 #  description :string
-#  metadata    :jsonb
+#  metadata    :jsonb            default("{}")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

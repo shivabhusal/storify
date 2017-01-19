@@ -6,10 +6,10 @@
 #  number           :string
 #  total            :float
 #  total_tax        :float
-#  status           :integer
+#  status           :integer          default("0")
 #  adjustment_total :float
 #  completed_at     :datetime
-#  payment_status   :integer
+#  payment_status   :integer          default("0")
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

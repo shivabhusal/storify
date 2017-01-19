@@ -8,6 +8,7 @@
 #  order_id         :integer
 #  adjustment_total :float
 #  price            :float
+#  metadata         :jsonb            default("{}")
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

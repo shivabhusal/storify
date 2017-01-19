@@ -50,7 +50,9 @@ gem 'awesome_print'
 gem 'annotate'
 gem 'carrierwave', '~> 1.0'
 
+# inherited_resources has been removed from Rails long ago
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+# Using master branch of ActiveAdmin in github
 gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
