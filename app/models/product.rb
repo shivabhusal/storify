@@ -32,6 +32,9 @@ class Product < ApplicationRecord
   has_many :line_items
   has_many :orders, through: :line_items
 
+  has_many :cart_items
+  has_many :carts, through: :cart_items
+
   enum status: [:draft, :published]
   mount_uploader :payload, ProductUploader
   store :metadata, accessors: [:isbn, :author, :publisher, :genre]

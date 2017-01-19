@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @cart.user
+p
+  strong Status:
+  = @cart.status
+p
+  strong Metadata:
+  = @cart.metadata
+
+= link_to 'Edit', edit_cart_path(@cart)
+'|
+= link_to 'Back', carts_path

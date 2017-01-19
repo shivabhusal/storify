@@ -1,0 +1,25 @@
+h1 Listing carts
+
+table
+  thead
+    tr
+      th User
+      th Status
+      th Metadata
+      th
+      th
+      th
+
+  tbody
+    - @carts.each do |cart|
+      tr
+        td = cart.user
+        td = cart.status
+        td = cart.metadata
+        td = link_to 'Show', cart
+        td = link_to 'Edit', edit_cart_path(cart)
+        td = link_to 'Destroy', cart, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Cart', new_cart_path
