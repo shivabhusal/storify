@@ -1,0 +1,7 @@
+h2 Cart
+- if current_user.customer? && current_user.cart.products.present?
+  h3 Cart Items
+- else
+  h3 No Item in the cart. Would you like to buy some?
+  = link_to 'Shop', root_path
+
