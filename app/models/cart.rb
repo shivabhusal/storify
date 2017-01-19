@@ -17,6 +17,5 @@ class Cart < ApplicationRecord
   has_many :products, through: :cart_items
 
   accepts_nested_attributes_for :cart_items
-
   alias items cart_items
 end

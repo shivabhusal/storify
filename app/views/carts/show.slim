@@ -25,6 +25,21 @@ h2 Cart
                 tr
                   th Price
                   td = number_to_currency item.product.selling_price
+          = link_to cart_path(id: item), method: :delete, class: 'btn btn-danger' do
+            | Remove from Cart
+  .row
+    .col-md-6
+      table.table.table-striped
+        tr
+          th Total Price
+          td = number_to_currency @cart.items.total_amount
+        tr
+          th Total Tax
+          td = number_to_currency @cart.items.total_tax_amount
+        tr
+          th Grand Total
+          td = number_to_currency @cart.items.total_amount + @cart.items.total_tax_amount
+
   .btn.btn-primary Checkout
 - else
   h3 No Item in the cart. Would you like to buy some?

@@ -16,6 +16,21 @@ class CartsController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    cart_item = @cart.items.find(params[:id])
+    if cart_item.destroy
+      flash[:notice] = 'Item successfully removed from the cart'
+    else
+      flash[:error] = 'Could not complete the operation due to some error'
+    end
+    redirect_back fallback_location: root_path
+  end
+
+  def checkout
+  # Generate Order and Line Items from Cart and CartItems
+    # Delete Cart and CartItems
+  end
+
   private
 
     def cart_params
