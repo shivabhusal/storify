@@ -15,4 +15,6 @@
 class LineItem < ApplicationRecord
   belongs_to :product
   belongs_to :order
+
+  scope :total_amount, -> { joins(:product).sum('products.selling_price*line_items.quantity')}
 end
