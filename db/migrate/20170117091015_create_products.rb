@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string        :name
       t.text          :description
       t.string        :sku
+      t.string        :slug
       t.string        :meta_title
       t.string        :meta_tags
       t.text          :meta_description

@@ -24,6 +24,9 @@
 #
 
 class Product < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :pictures, as: :imageable
 
   has_many :product_categories
@@ -38,4 +41,13 @@ class Product < ApplicationRecord
   enum status: [:draft, :published]
   mount_uploader :payload, ProductUploader
   store :metadata, accessors: [:isbn, :author, :publisher, :genre]
+
+  # Try building a slug based on the following fields in
+  # increasing order of specificity.
+  def slug_candidates
+    [
+        :name,
+        [:name, :sku]
+    ]
+  end
 end
