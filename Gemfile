@@ -42,9 +42,6 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Use Font Awesome for Awesome Icons
 gem 'font-awesome-rails', '~> 4.6.3.1'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-
 gem 'devise'
 
 # Slim templates
@@ -52,6 +49,12 @@ gem 'slim-rails', '~> 3.1.1'
 gem 'awesome_print'
 gem 'annotate'
 gem 'carrierwave', '~> 1.0'
+
+# inherited_resources has been removed from Rails long ago
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+# Using master branch of ActiveAdmin in github
+gem 'activeadmin', github: 'activeadmin'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails', platform: :mri
@@ -59,6 +62,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.1'

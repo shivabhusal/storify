@@ -9,9 +9,9 @@
 #  last_name              :string
 #  gender                 :string
 #  avatar                 :string
-#  metadata               :jsonb
+#  metadata               :jsonb            default("{}")
 #  type                   :string
-#  status                 :integer
+#  status                 :integer          default("0")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  encrypted_password     :string           default(""), not null
@@ -31,4 +31,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
+
+  def admin?
+    false
+  end
+
+  def customer?
+    false
+  end
 end

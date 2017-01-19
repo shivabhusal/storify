@@ -9,9 +9,9 @@
 #  last_name              :string
 #  gender                 :string
 #  avatar                 :string
-#  metadata               :jsonb
+#  metadata               :jsonb            default("{}")
 #  type                   :string
-#  status                 :integer
+#  status                 :integer          default("0")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  encrypted_password     :string           default(""), not null
@@ -26,5 +26,13 @@
 #
 
 class Admin < User
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, 
+         :recoverable, :rememberable, :trackable, :validatable
+
+  def admin?
+    true
+  end
 
 end

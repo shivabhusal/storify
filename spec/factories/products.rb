@@ -23,10 +23,10 @@
 #  updated_at       :datetime         not null
 #
 
-require 'rails_helper'
-
-RSpec.describe Product, type: :model do
-  it {should have_many :line_items}
-  it {should have_many :orders}
-  it {should have_many :pictures}
+FactoryGirl.define do
+  factory :product do
+    sku { SecureRandom::hex(3) }
+    name { Faker::Book.title }
+    tax_rate { 12 }
+  end
 end

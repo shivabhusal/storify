@@ -9,9 +9,9 @@
 #  last_name              :string
 #  gender                 :string
 #  avatar                 :string
-#  metadata               :jsonb
+#  metadata               :jsonb            default("{}")
 #  type                   :string
-#  status                 :integer
+#  status                 :integer          default("0")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  encrypted_password     :string           default(""), not null
@@ -27,4 +27,7 @@
 
 class Customer < User
 
+  def customer?
+    true
+  end
 end
