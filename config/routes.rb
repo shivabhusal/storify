@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cart
+  resource :cart
   # devise_for :admins, ActiveAdmin::Devise.config
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

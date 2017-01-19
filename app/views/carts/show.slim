@@ -1,0 +1,32 @@
+h2 Cart
+- if @cart.items.present?
+  h3 Cart Items
+  - @cart.items.each do |item|
+    .panel.panel-default
+      .panel-body
+
+        .col-md-2.margin10top
+          = link_to item.product do
+            = image_tag item.product.first_image, class: 'img-responsive'
+        .col-md-10
+          = link_to item.product do
+            h4
+              = item.product.name
+              span.small
+                - if item.product.author.present?
+                  |  by&nbsp;
+                  = item.product.author
+          hr
+          = item.product.description
+          .clearfix
+          .row.margin10top
+            .col-md-6
+              table.table.table-striped
+                tr
+                  th Price
+                  td = number_to_currency item.product.selling_price
+  .btn.btn-primary Checkout
+- else
+  h3 No Item in the cart. Would you like to buy some?
+  = link_to 'Shop', root_path
+

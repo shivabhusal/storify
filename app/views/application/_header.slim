@@ -9,10 +9,10 @@ header
 
   .pull-right
 
-    = link_to cart_index_path, class: 'btn btn-primary' do
+    = link_to cart_path, class: 'btn btn-primary' do
       | Cart
-      span.badge 42
-    - if current_user&.admin?
+      span.badge = @cart.items.count
+    - if current_user && current_user&.admin?
       = link_to 'Goto Dashboard', super_user_dashboard_path, class: 'btn btn-info'
     - if current_user.present?
       = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-info'

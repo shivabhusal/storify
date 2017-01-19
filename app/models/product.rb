@@ -6,6 +6,7 @@
 #  name             :string
 #  description      :text
 #  sku              :string
+#  slug             :string
 #  meta_title       :string
 #  meta_tags        :string
 #  meta_description :text
@@ -40,8 +41,13 @@ class Product < ApplicationRecord
 
   enum status: [:draft, :published]
   mount_uploader :payload, ProductUploader
-  store :metadata, accessors: [:isbn, :author, :publisher, :genre]
+  store :metadata, accessors: [:isbn, :author, :publisher, :genre, :pages]
 
+  def first_image
+    pictures.first&.payload || Config::DefaultCoverFileName
+  end
+
+  private
   # Try building a slug based on the following fields in
   # increasing order of specificity.
   def slug_candidates
