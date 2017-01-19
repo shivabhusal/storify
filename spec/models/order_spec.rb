@@ -17,5 +17,23 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_uniqueness_of(:number) }
+  it { should validate_presence_of(:number) }
+  it {should have_many :line_items}
+  it {should have_many :products}
+  it {should define_enum_for :status}
+  it {should define_enum_for :payment_status}
+
+  describe 'assign_order_number' do
+    let(:order) { create(:order) }
+    it 'should set an unique 6 digits order number' do
+      expect(order.number).to be_a(String)
+      expect(order.number.length).to be 6
+    end
+  end
+
+  let(:product1) { build_stubbed(:product) }
+  it 'should update total amount before commit' do
+
+  end
 end

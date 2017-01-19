@@ -110,3 +110,10 @@ Product.create({
                    categories:       [doc, temp]
 
                })
+
+Order.create({
+                 line_items: [
+                                 LineItem.create({ product: Product.first, quantity: 2 }),
+                                 LineItem.create({ product: Product.second, quantity: 4 })
+                             ]
+             })

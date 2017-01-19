@@ -60,6 +60,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.1'

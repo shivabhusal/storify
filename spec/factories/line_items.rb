@@ -12,7 +12,8 @@
 #  updated_at       :datetime         not null
 #
 
-class LineItem < ApplicationRecord
-  belongs_to :product
-  belongs_to :order
+FactoryGirl.define do
+  factory :line_item do
+    
+  end
 end

@@ -15,6 +15,8 @@
 #  available_upto   :datetime
 #  selling_price    :float
 #  cost_price       :float
+#  tax_rate         :float
+#  status           :integer
 #  owner_id         :integer
 #  payload          :string
 #  created_at       :datetime         not null
@@ -24,5 +26,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should have_many :line_items}
+  it {should have_many :orders}
+  it {should have_many :pictures}
 end

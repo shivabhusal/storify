@@ -19,5 +19,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :payload
       t.timestamps
     end
+    add_index :products, :name
+    add_index :products, :sku, unique: true
   end
 end

@@ -27,4 +27,7 @@
 
 class Customer < User
 
+  def customer?
+    true
+  end
 end
