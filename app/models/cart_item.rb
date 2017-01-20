@@ -12,6 +12,11 @@
 class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
-  scope :total_amount, -> { joins(:product).sum('products.selling_price')}
-  scope :total_tax_amount, -> { joins(:product).sum('products.selling_price*(products.tax_rate/100.0)')}
+  scope :total_amount, -> {
+    joins(:product).sum('products.selling_price')
+  }
+
+  scope :total_tax_amount, -> {
+    joins(:product).sum('products.selling_price*(products.tax_rate/100.0)')
+  }
 end

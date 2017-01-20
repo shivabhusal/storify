@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/shivabhusal/storify/badges/gpa.svg)](https://codeclimate.com/github/shivabhusal/storify)
 [![Test Coverage](https://codeclimate.com/github/shivabhusal/storify/badges/coverage.svg)](https://codeclimate.com/github/shivabhusal/storify/coverage)
 [![Issue Count](https://codeclimate.com/github/shivabhusal/storify/badges/issue_count.svg)](https://codeclimate.com/github/shivabhusal/storify)
+[![CircleCI](https://circleci.com/gh/shivabhusal/storify.svg?style=svg)](https://circleci.com/gh/shivabhusal/storify)
 ## Tech Stack
 - Ruby Version: `2.3.1p112`
 - Rails Version: `5.0.1`
