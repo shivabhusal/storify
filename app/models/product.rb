@@ -25,6 +25,8 @@
 #
 
 class Product < ApplicationRecord
+  PerPage = 2
+  paginates_per PerPage
   extend FriendlyId
   friendly_id :name, use: :slugged
 

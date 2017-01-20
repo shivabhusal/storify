@@ -23,5 +23,6 @@
             b.padding10left $1000
             button.margin20left.btn.btn-default[type="submit"]
               | Search
+= paginate @products
 - @products.each do |product|
   = render 'product', product: product

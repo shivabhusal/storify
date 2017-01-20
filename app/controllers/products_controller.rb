@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @products = Product.all
+    @products = Product.all.page(params[:page])
   end
 
   def show
@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
       fulltext params[:q]
       with(:selling_price).between(range[0]..range[1]) if params[:price].present?
       with(:categories, params['search-categories']&.map(&:to_i)) if params['search-categories'].present?
+
+      paginate :page => params[:page], :per_page => Product::PerPage
     end.results
   end
 end
