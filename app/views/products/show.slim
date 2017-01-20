@@ -21,3 +21,10 @@
             td
               strong Material
             td 600 Denier Polyester
+      .col-md-12
+        - if @product.id.in?(@cart.products.ids)
+          span.btn.btn-info.disabled
+            i.glyphicon.glyphicon-shopping-cart
+            |  Added to the Cart
+        - else
+          = render 'add_to_cart', product: @product

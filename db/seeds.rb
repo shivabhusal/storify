@@ -30,6 +30,7 @@ lics   = Category.create(name: 'License')
 Category.create([
                     { parent_id: ebooks.id, name: 'Computer Science', description: 'Readable via Electronic devices.' },
                     { parent_id: ebooks.id, name: 'Electronics' },
+                    { parent_id: ebooks.id, name: 'Mechanical' },
                     { parent_id: ebooks.id, name: 'Law' },
                     { parent_id: ebooks.id, name: 'Social' }
                 ])
@@ -49,7 +50,7 @@ Category.create([
 
 
 Product.create({
-                   name:             'Book1',
+                   name:             'Electronics in a nut shell',
                    description:      'This book is very good',
                    sku:              'BO_EL_F1_P2343',
                    meta_title:       'A book on electronics',
@@ -61,11 +62,11 @@ Product.create({
                    cost_price:       100,
                    selling_price:    120.34,
                    owner_id:         1,
-                   categories:       [doc, slides]
+                   categories:       [doc, slides, Category.find_by_name('Electronics')]
                })
 
 Product.create({
-                   name:             'Book2',
+                   name:             'Amazing Law book',
                    description:      'This book is very good',
                    sku:              'BO_EL_F1_P2342',
                    meta_title:       'A book on electronics',
@@ -77,12 +78,12 @@ Product.create({
                    cost_price:       100,
                    selling_price:    120.34,
                    owner_id:         1,
-                   categories:       [doc, slides]
+                   categories:       [doc, Category.find_by_name('Law')]
 
                })
 
 Product.create({
-                   name:             'Book3',
+                   name:             'Tinkering an old car',
                    description:      'This book is very good',
                    sku:              'BO_EL_F1_P2341',
                    meta_title:       'A book on electronics',
@@ -94,7 +95,7 @@ Product.create({
                    cost_price:       100,
                    selling_price:    120.34,
                    owner_id:         1,
-                   categories:       [doc, slides]
+                   categories:       [doc, slides, Category.find_by_name('Mechanical')]
 
                })
 
@@ -111,7 +112,7 @@ Product.create({
                    tax_rate:         1.0,
                    selling_price:    120.34,
                    owner_id:         1,
-                   categories:       [doc, temp]
+                   categories:       [doc, temp, Category.find_by_name('Mechanical')]
 
                })
 

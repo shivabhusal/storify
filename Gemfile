@@ -55,6 +55,8 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # Using master branch of ActiveAdmin in github
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'friendly_id', '~> 5.1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails', platform: :mri
@@ -62,6 +64,9 @@ group :development, :test do
 end
 
 group :test do
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
+
   gem 'faker'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

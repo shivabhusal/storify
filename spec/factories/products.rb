@@ -6,6 +6,7 @@
 #  name             :string
 #  description      :text
 #  sku              :string
+#  slug             :string
 #  meta_title       :string
 #  meta_tags        :string
 #  meta_description :text

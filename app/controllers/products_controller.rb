@@ -4,8 +4,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+
   def show
-    @product = Product.first
+    @cart.cart_items.build
+    @product = Product.friendly.find(params[:id])
   end
 
 end

@@ -4,10 +4,12 @@
 
     .panel.panel-default
       .panel-body.text-center.product-body
-        a href="/products/ruby-on-rails-tote" itemprop="url"
+        = link_to product_path(product) do
           = image_tag product.payload, width: 200
+
           br/
-          span.info itemprop="name" title=("Ruby on Rails Tote")  Ruby on Rails Tote
+          span.info itemprop="name" title="#{product.name}"
+            = product.name
         br/
       .panel-footer.text-center
         span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer"

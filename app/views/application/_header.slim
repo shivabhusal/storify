@@ -8,7 +8,11 @@ header
       a href="#"  Messages
 
   .pull-right
-    - if current_user&.admin?
+
+    = link_to cart_path, class: 'btn btn-primary' do
+      | Cart
+      span.badge = @cart.items.count
+    - if current_user && current_user&.admin?
       = link_to 'Goto Dashboard', super_user_dashboard_path, class: 'btn btn-info'
     - if current_user.present?
       = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-info'

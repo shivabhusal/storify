@@ -3,7 +3,7 @@
 # Table name: line_items
 #
 #  id               :integer          not null, primary key
-#  quantity         :integer
+#  quantity         :integer          default("1")
 #  product_id       :integer
 #  order_id         :integer
 #  adjustment_total :float

@@ -6,6 +6,7 @@
 #  name             :string
 #  description      :text
 #  sku              :string
+#  slug             :string
 #  meta_title       :string
 #  meta_tags        :string
 #  meta_description :text
@@ -24,6 +25,9 @@
 #
 
 class Product < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :pictures, as: :imageable
 
   has_many :product_categories
@@ -32,7 +36,24 @@ class Product < ApplicationRecord
   has_many :line_items
   has_many :orders, through: :line_items
 
+  has_many :cart_items
+  has_many :carts, through: :cart_items
+
   enum status: [:draft, :published]
   mount_uploader :payload, ProductUploader
-  store :metadata, accessors: [:isbn, :author, :publisher, :genre]
+  store :metadata, accessors: [:isbn, :author, :publisher, :genre, :pages]
+
+  def first_image
+    pictures.first&.payload || Config::DefaultCoverFileName
+  end
+
+  private
+  # Try building a slug based on the following fields in
+  # increasing order of specificity.
+  def slug_candidates
+    [
+        :name,
+        [:name, :sku]
+    ]
+  end
 end
