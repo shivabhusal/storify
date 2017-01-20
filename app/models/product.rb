@@ -25,6 +25,8 @@
 #
 
 class Product < ApplicationRecord
+  PerPage = 2
+  paginates_per PerPage
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -42,6 +44,19 @@ class Product < ApplicationRecord
   enum status: [:draft, :published]
   mount_uploader :payload, ProductUploader
   store :metadata, accessors: [:isbn, :author, :publisher, :genre, :pages]
+
+  # Setting for indexing data
+  searchable do
+    text :name, :description
+    integer :categories, multiple: true do
+      categories.ids
+    end
+
+    boolean :status
+    time :created_at
+    time :updated_at
+    double :selling_price
+  end
 
   def first_image
     pictures.first&.payload || Config::DefaultCoverFileName

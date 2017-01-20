@@ -30,4 +30,11 @@ RSpec.describe Product, type: :model do
   it {should have_many :line_items}
   it {should have_many :orders}
   it {should have_many :pictures}
+
+  describe 'searchable fields' do
+
+    it {should have_searchable_field :name}
+    it {should have_searchable_field :description}
+
+  end
 end

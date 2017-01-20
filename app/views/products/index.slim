@@ -1,4 +1,5 @@
 .search-bar
   = render 'search'
+= paginate @products
 - @products.each do |product|
   = render 'product', product: product
