@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   end
 
   def create
-    cart = Cart.create(cart_params) && session[:cart_id] = @cart.id
+    session[:cart_id] = Cart.create(cart_params).id
     redirect_to :back
   end
 
