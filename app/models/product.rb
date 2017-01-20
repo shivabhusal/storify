@@ -56,10 +56,6 @@ class Product < ApplicationRecord
     time :created_at
     time :updated_at
     double :selling_price
-
-    string  :sort_title do
-      name.downcase.gsub(/^(an?|the)/, '')
-    end
   end
 
   def first_image

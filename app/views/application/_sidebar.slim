@@ -7,5 +7,5 @@
         li.list-group-item #{category.name}
       ul
         - category.children.each do|child_cat|
-          a href=""
+          = link_to search_products_path('search-categories': [child_cat.id]) do
             li.list-group-item #{child_cat.name}
