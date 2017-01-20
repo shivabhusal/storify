@@ -56,7 +56,8 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'sunspot_rails'
+gem 'sunspot_rails', '~> 2.2.7'
+gem 'bootstrap-slider-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

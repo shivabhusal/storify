@@ -147,6 +147,7 @@ ActiveAdmin.setup do |config|
   #
   # config.before_action :do_something_awesome
   config.skip_before_action :set_categories
+  config.skip_before_action :set_cart
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.

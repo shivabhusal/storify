@@ -11,10 +11,12 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.solr_search do
+    range       = params[:price] && params[:price].split(',').map { |x| x.to_f }
+    @categories = Category.all
+    @products   = Product.solr_search do
       fulltext params[:q]
+      with(:selling_price).between(range[0]..range[1]) if params[:price].present?
+      with(:categories, params['search-categories']&.map(&:to_i)) if params['search-categories'].present?
     end.results
-
-    render :index
   end
 end

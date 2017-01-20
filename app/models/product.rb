@@ -46,7 +46,14 @@ class Product < ApplicationRecord
   # Setting for indexing data
   searchable do
     text :name, :description
+    integer :categories, multiple: true do
+      categories.ids
+    end
+
     boolean :status
+    time :created_at
+    time :updated_at
+    double :selling_price
 
     string  :sort_title do
       name.downcase.gsub(/^(an?|the)/, '')
