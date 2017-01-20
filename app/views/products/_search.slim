@@ -1,7 +1,7 @@
 .search-bar.margin40top.margin40bottom
-  = form_tag '' do
+  = form_tag search_products_path, method: :get do
     .col-md-offset-2.col-md-6
-      = text_field_tag 'Name', nil, class: 'form-control'
+      = text_field_tag 'q', nil, class: 'form-control'
     .col-md-2
       = submit_tag 'Search', class: 'form-control btn btn-primary'
   .clearfix

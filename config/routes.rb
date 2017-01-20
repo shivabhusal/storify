@@ -18,5 +18,9 @@ Rails.application.routes.draw do
   end
   ActiveAdmin.routes(self)
 
-  resources :products
+  resources :products do
+    collection do
+      get :search
+    end
+  end
 end

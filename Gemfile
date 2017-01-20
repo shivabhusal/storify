@@ -56,6 +56,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'friendly_id', '~> 5.1.0'
+gem 'sunspot_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,6 +67,7 @@ end
 group :test do
   gem "simplecov"
   gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem 'sunspot_matchers'
 
   gem 'faker'
   gem 'database_cleaner'
@@ -75,6 +77,7 @@ group :test do
 end
 
 group :development do
+  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
   gem 'rubocop', require: false
   gem 'mailcatcher', require: false # Catches emails in localhost, See https://mailcatcher.me/
   gem 'zeus', require: false

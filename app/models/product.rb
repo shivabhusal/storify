@@ -43,6 +43,16 @@ class Product < ApplicationRecord
   mount_uploader :payload, ProductUploader
   store :metadata, accessors: [:isbn, :author, :publisher, :genre, :pages]
 
+  # Setting for indexing data
+  searchable do
+    text :name, :description
+    boolean :status
+
+    string  :sort_title do
+      name.downcase.gsub(/^(an?|the)/, '')
+    end
+  end
+
   def first_image
     pictures.first&.payload || Config::DefaultCoverFileName
   end
