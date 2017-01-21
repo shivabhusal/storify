@@ -16,4 +16,7 @@
 //= require bootstrap-slider
 //= require bootstrap-multiselect
 //= require intlTelInput.min
+//= require jquery.validate.min
+//= require_tree ./config
+//= require_tree ./validations
 //= require_tree .
