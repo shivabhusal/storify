@@ -15,5 +15,5 @@
 //= require bootstrap
 //= require bootstrap-slider
 //= require bootstrap-multiselect
-//= require countrySelect.min
+//= require intlTelInput.min
 //= require_tree .

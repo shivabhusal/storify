@@ -4,7 +4,9 @@
 #
 #  id                     :integer          not null, primary key
 #  email                  :string
+#  country_code           :string
 #  phone_number           :string
+#  authy_id               :string
 #  first_name             :string
 #  last_name              :string
 #  gender                 :string
@@ -23,6 +25,13 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  failed_attempts        :integer          default("0"), not null
+#  unlock_token           :string
+#  locked_at              :datetime
 #
 
 class Customer < User

@@ -4,7 +4,9 @@
 #
 #  id                     :integer          not null, primary key
 #  email                  :string
+#  country_code           :string
 #  phone_number           :string
+#  authy_id               :string
 #  first_name             :string
 #  last_name              :string
 #  gender                 :string
@@ -23,16 +25,26 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  failed_attempts        :integer          default("0"), not null
+#  unlock_token           :string
+#  locked_at              :datetime
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable,
          :lockable, :timeoutable
 
+  validates_presence_of :email, :phone_number, :gender, :country_code
+  validates :email, format: {with: Config::VALID_EMAIL_REGEX}
+  validates_uniqueness_of :email, :authy_id
+
   mount_uploader :avatar, AvatarUploader
+  enum status: [:active, :inactive]
 
   def admin?
     false

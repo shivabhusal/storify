@@ -18,11 +18,7 @@
 @import "bootstrap";
 @import "bootstrap-slider";
 @import "bootstrap-multiselect";
-@import "countrySelect.min";
+@import "intlTelInput";
 @import "spacers";
 
-.country-select {
-    .flag {
-      background-image: url(image-path('flags.png'));
-    }
-}
+.iti-flag {background-image: url(asset-path('flags.png'));}

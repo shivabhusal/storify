@@ -24,8 +24,14 @@ class ApplicationController < ActionController::Base
     # Some override has been done in DeviseOverride::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: [:email,
+                                             :first_name,
+                                             :last_name,
+                                             :gender,
+                                             :avatar,
                                              :password,
                                              :password_confirmation,
+                                             :country_code,
+                                             :phone_number,
                                              :type])
 
   end
