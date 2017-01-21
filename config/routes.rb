@@ -14,10 +14,20 @@ Rails.application.routes.draw do
 
   resource :cart do
     member { delete :destroy }
-    collection { post :checkout }
+    collection do
+      post :checkout
+      post :pre_checkout
+    end
   end
 
   resources :products do
     collection { get :search }
   end
+
+  resources :orders
+
+  post "authy/callback"
+  get "authy/status" => 'authy#one_touch_status'
+  post "authy/send_token_via_sms"
+  post "authy/verify"
 end

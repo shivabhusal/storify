@@ -40,7 +40,7 @@ h2 Cart
           th Grand Total
           td = number_to_currency @cart.items.total_amount + @cart.items.total_tax_amount
 
-  = link_to checkout_cart_path, method: :post, class: 'btn btn-primary' do
+  = link_to pre_checkout_cart_path, method: :post, class: 'btn btn-primary' do
     | Checkout
 - else
   h3 No Item in the cart. Would you like to buy some?

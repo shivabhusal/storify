@@ -36,6 +36,8 @@
 
 class Customer < User
   has_one :cart
+  has_many :orders, foreign_key: :user_id
+
   def customer?
     true
   end
