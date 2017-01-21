@@ -13,10 +13,16 @@
  *= require_self
  *= require_tree .
  */
-
 //"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-slider";
 @import "bootstrap-multiselect";
+@import "countrySelect.min";
 @import "spacers";
+
+.country-select {
+    .flag {
+      background-image: url(image-path('flags.png'));
+    }
+}

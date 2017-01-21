@@ -19,7 +19,13 @@
       = f.label :password_confirmation
       br
       = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-
+    .field
+      = f.label :phone_number
+      .row
+        .col-md-1
+          = f.text_field :country_code, class: ''
+        .col-md-6
+          = f.text_field :phone_number, class: 'form-control', placeholder: 'Phonenumber here'
     .actions
       = f.submit "Sign up", class: 'form-control btn btn-primary'
 
