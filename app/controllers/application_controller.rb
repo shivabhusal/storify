@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :null_session
   # Note: Any before_action declared here must be skipped via active_admin.rb
 
   include ExceptionHandler
@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_categories
+    # binding.pry
     @categories = Category.master
   end
 
@@ -41,4 +42,5 @@ class ApplicationController < ActionController::Base
       raise UnAuthorized
     end
   end
+
 end

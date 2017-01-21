@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string  :email, unique: true
       t.string  :country_code
       t.string  :phone_number
-      t.string  :authy_id
       t.string  :first_name
       t.string  :last_name
       t.string  :gender

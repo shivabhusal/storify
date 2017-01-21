@@ -35,9 +35,10 @@
 #
 
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable,
+  devise :authy_authenticatable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable,
          :lockable, :timeoutable
+  after_create :update_authy_id
 
   validates_presence_of :email, :phone_number, :gender, :country_code
   validates :email, format: {with: Config::VALID_EMAIL_REGEX}
@@ -52,5 +53,15 @@ class User < ApplicationRecord
 
   def customer?
     false
+  end
+
+  def update_authy_id
+
+    authy = Authy::API.register_user(
+        email: email,
+        cellphone: phone_number,
+        country_code: country_code
+    )
+    self.update(authy_id: authy.id, authy_enabled: true) if authy.present?
   end
 end

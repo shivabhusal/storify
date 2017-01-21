@@ -33,6 +33,16 @@ class CartsController < ApplicationController
       LineItem.create({ product_id: cart_item.product_id })
     end
 
+    # Try to verify with OneTouch
+    one_touch = Authy::OneTouch.send_approval_request(
+        id: @user.authy_id,
+        message: "Request to Login to Twilio demo app",
+        details: {
+            'Email Address' => @user.email,
+        }
+    )
+    binding.pry
+
     if Order.create(line_items: line_items)
       flash[:notice] = 'You have successfully order the items in cart'
       @cart.destroy

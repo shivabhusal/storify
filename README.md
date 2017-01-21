@@ -11,6 +11,7 @@
 ## Installation
  [TODO] to be updated soon
  
+Note: Make sure the `solr` instance is up and running for every operations like `db:reset`, `db:seed`, or running application.
 ## Hacks
 If you wish to do the following jobs with single command then see below 
   - Droping DB
@@ -21,6 +22,12 @@ If you wish to do the following jobs with single command then see below
 execute this command
 ```bash
 $ echo "alias hard_reset_db='rails db:drop && rake db:create && rake db:migrate && rake db:reset'"  >> ~/.bash_aliases
+```
+
+or open the file `~/.bash_aliases` and put the following content.
+```bash
+alias hard_reset='(echo "Dropping DB ..")&&(rails db:drop) && (rake db:create) && (rake db:migrate) && (echo "Seeding..")&&(rake db:seed)&&(echo "Done!")'
+
 ```
 This will update your system's alias list. Now whenever you wish you can use it like
 ```bash

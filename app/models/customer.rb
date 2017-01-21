@@ -36,8 +36,9 @@
 
 class Customer < User
   has_one :cart
-
   def customer?
     true
   end
+
+  private
 end

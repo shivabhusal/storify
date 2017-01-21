@@ -43,6 +43,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails', '~> 4.6.3.1'
 
 gem 'devise'
+gem 'devise-authy'
 
 # Slim templates
 gem 'slim-rails', '~> 3.1.1'
@@ -61,13 +62,9 @@ gem 'bootstrap-slider-rails'
 gem 'kaminari'
 gem 'figaro'
 
-# Use Font Awesome for Awesome Icons
-gem 'font-awesome-rails', '~> 4.6.3.1'
-
 # Use Authy for sending token
-gem 'authy'
 # Use Twilio to send confirmation message
-gem 'twilio-ruby', '~> 5.0.0.rc17'
+# gem 'twilio-ruby', '~> 5.0.0.rc17'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
