@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
   # Note: Any before_action declared here must be skipped via active_admin.rb
 
-  protect_from_forgery with: :exception
+  include ExceptionHandler
+
   before_action :authenticate_user!
   before_action :set_categories
   before_action :set_cart
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   private
 
   def set_categories
@@ -15,4 +20,19 @@ class ApplicationController < ActionController::Base
     @cart = Cart.find_or_initialize_by(id: session[:cart_id])
   end
 
+  def configure_permitted_parameters
+    # Some override has been done in DeviseOverride::RegistrationsController
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: [:email,
+                                             :password,
+                                             :password_confirmation,
+                                             :type])
+
+  end
+
+  def authenticate_only_customer!
+    unless current_user&.customer?
+      raise UnAuthorized
+    end
+  end
 end

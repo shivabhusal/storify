@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'devise_override/registrations' }
   ActiveAdmin.routes(self)
 
   root 'products#index'

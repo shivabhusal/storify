@@ -59,6 +59,12 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'sunspot_rails', '~> 2.2.7'
 gem 'bootstrap-slider-rails'
 gem 'kaminari'
+gem 'figaro'
+
+# Use Authy for sending token
+gem 'authy'
+# Use Twilio to send confirmation message
+gem 'twilio-ruby', '~> 5.0.0.rc17'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

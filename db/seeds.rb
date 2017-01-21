@@ -116,6 +116,109 @@ Product.create({
 
                })
 
+Product.create({
+                   name:             'Book5',
+                   description:      'This book 5 is very good',
+                   sku:              'BO_EL_F1_P2346',
+                   meta_title:       'A book on electronics',
+                   meta_description: 'This book has a long description',
+                   tags:             'Electronics, The book, 100Pages',
+                   available_from:   2.days.from_now,
+                   available_upto:   45.days.from_now,
+                   cost_price:       100,
+                   tax_rate:         1.0,
+                   selling_price:    120.34,
+                   owner_id:         1,
+                   categories:       [doc, temp, Category.find_by_name('Mechanical')]
+
+               })
+
+Product.create({
+                   name:             'Book6',
+                   description:      'This book 5 is very good',
+                   sku:              'BO_EL_6F1_P2346',
+                   meta_title:       'A book on electronics',
+                   meta_description: 'This book has a long description',
+                   tags:             'Electronics, The book, 100Pages',
+                   available_from:   2.days.from_now,
+                   available_upto:   45.days.from_now,
+                   cost_price:       100,
+                   tax_rate:         1.0,
+                   selling_price:    120.34,
+                   owner_id:         1,
+                   categories:       [doc, temp, Category.find_by_name('Mechanical')]
+
+               })
+
+
+
+Product.create({
+                   name:             'Law in a nut shell',
+                   description:      'This book is very good',
+                   sku:              'BO_EL_F1_6P2343',
+                   meta_title:       'A book on Law',
+                   meta_description: 'This book has a long description',
+                   tags:             'Law, The book, 100Pages',
+                   available_from:   2.days.from_now,
+                   available_upto:   45.days.from_now,
+                   tax_rate:         1.0,
+                   cost_price:       100,
+                   selling_price:    120.34,
+                   owner_id:         1,
+                   categories:       [doc, slides, Category.find_by_name('Law')]
+               })
+
+
+Product.create({
+                   name:             'Another book for Law in a nut shell',
+                   description:      'This book is very good',
+                   sku:              'BO_EL_F1_7P2343',
+                   meta_title:       'A book on Law',
+                   meta_description: 'This book has a long description',
+                   tags:             'Law, The book, 100Pages',
+                   available_from:   2.days.from_now,
+                   available_upto:   45.days.from_now,
+                   tax_rate:         1.0,
+                   cost_price:       500,
+                   selling_price:    620.34,
+                   owner_id:         1,
+                   categories:       [doc, slides, Category.find_by_name('Law')]
+               })
+
+
+Product.create({
+                   name:             'Another book for History Law',
+                   description:      'This book is very good',
+                   sku:              'BO_EL_F1_8P2343',
+                   meta_title:       'A book on Law',
+                   meta_description: 'This book has a long description',
+                   tags:             'Law, The book, 100Pages',
+                   available_from:   2.days.from_now,
+                   available_upto:   45.days.from_now,
+                   tax_rate:         1.0,
+                   cost_price:       1000,
+                   selling_price:    1120.34,
+                   owner_id:         1,
+                   categories:       [doc, slides, Category.find_by_name('Law')]
+               })
+
+
+Product.create({
+                   name:             'The core book for History of Law',
+                   description:      'This book is very good',
+                   sku:              'BO_EL_F1_9P2343',
+                   meta_title:       'A book on Law',
+                   meta_description: 'This book has a long description',
+                   tags:             'Law, The book, 100Pages',
+                   available_from:   2.days.from_now,
+                   available_upto:   45.days.from_now,
+                   tax_rate:         1.0,
+                   cost_price:       100,
+                   selling_price:    220.34,
+                   owner_id:         1,
+                   categories:       [doc, slides, Category.find_by_name('Law')]
+               })
+
 Order.create({
                  line_items: [
                                  LineItem.create({ product: Product.first, quantity: 2 }),

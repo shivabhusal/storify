@@ -1,9 +1,8 @@
 class CartsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, except: [:checkout]
+  before_action :authenticate_only_customer!, only: [:checkout]
 
   def show
-
-    # render js: "document.location='#{request.referrer}'"
   end
 
   def create
@@ -50,4 +49,3 @@ class CartsController < ApplicationController
     params.require(:cart).permit(cart_items_attributes: [:product_id])
   end
 end
-

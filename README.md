@@ -10,6 +10,22 @@
 - PostGreSQL: ` 9.5.5`
 ## Installation
  [TODO] to be updated soon
+ 
+## Hacks
+If you wish to do the following jobs with single command then see below 
+  - Droping DB
+  - Creating DB
+  - Migration
+  - Seed
+#### Soloution:
+execute this command
+```bash
+$ echo "alias hard_reset_db='rails db:drop && rake db:create && rake db:migrate && rake db:reset'"  >> ~/.bash_aliases
+```
+This will update your system's alias list. Now whenever you wish you can use it like
+```bash
+$ hard_reset_db
+```
 ## Contribute
 ### Bug fixes
 
