@@ -35,7 +35,7 @@ class CartsController < ApplicationController
     current_user.update(authy_status: nil)
 
     # Try to verify with OneTouch
-    one_touch = Authy::OneTouch.send_approval_request(
+    Authy::OneTouch.send_approval_request(
         id:      current_user.authy_id,
         message: "Request to verify checkout to Storify app",
         details: {
@@ -51,9 +51,10 @@ class CartsController < ApplicationController
       LineItem.create({ product_id: cart_item.product_id })
     end
 
-    if Order.create(user_id: current_user.id, line_items: line_items)
-      flash[:notice] = 'You have successfully order the items in cart'
+    if order = Order.create(user_id: current_user.id, line_items: line_items)
+      flash[:notice] = 'You have successfully ordered the items in the cart. Products have been delivedred via Email.'
       @cart.destroy
+      CartMailer.deliver(order.id).deliver_now
     else
       flash[:error] = 'Could not complete the operation due to some error'
     end
