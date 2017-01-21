@@ -61,6 +61,9 @@ gem 'bootstrap-slider-rails'
 gem 'kaminari'
 gem 'figaro'
 
+# Use Font Awesome for Awesome Icons
+gem 'font-awesome-rails', '~> 4.6.3.1'
+
 # Use Authy for sending token
 gem 'authy'
 # Use Twilio to send confirmation message

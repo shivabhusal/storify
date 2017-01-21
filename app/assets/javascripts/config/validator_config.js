@@ -14,24 +14,18 @@ jQuery.validator.setDefaults({
     $(element).closest('.form-group').removeClass('has-validation-error');
     return
   },
-  // errorPlacement: function (error, element) {
-    // previous_error_object = $(document).find('#' + error[0].id);
-    // if (previous_error_object.length > 0) {
-    //   previous_error_object.remove();
-    // }
-    //
-    // if (element[0].id == 'garage_owner_setting_attributes_agreed_to_terms_and_condition'
-    //     || element[0].id == 'vehicle_owner_setting_attributes_agreed_to_terms_and_condition'
-    //     || element[0].id == 'quote_request_agree_quote_request_t_c'
-    //     || element[0].id == 'quote_request_agree_katsastus_t_c'
-    // ) {
-    //   element.parent().append(error)
-    // } else if (element.parent('.input-group').length > 0) {
-    //   error.insertAfter(element.parent());
-    // } else {
-    //   error.insertAfter(element)
-    // }
-  // }
+  errorPlacement: function (error, element) {
+    previous_error_object = $(document).find('#' + error[0].id);
+    if (previous_error_object.length > 0) {
+      previous_error_object.remove();
+    }
+
+    if (element.parent('.input-group').length > 0) {
+      error.insertAfter(element.parent());
+    } else {
+      error.insertAfter(element)
+    }
+  }
 });
 
 /////////////////////////////////////////////////////////////////////////////////////

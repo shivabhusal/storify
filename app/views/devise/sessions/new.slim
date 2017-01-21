@@ -1,20 +1,22 @@
 .sing-in-form.col-md-6
   h2 Log in
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
+    .form-group
       = f.label :email
       = f.email_field :email, autofocus: true, class: 'form-control'
 
-    .field
+    .form-group
       = f.label :password
       = f.password_field :password, autocomplete: "off", class: 'form-control'
 
     - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
+      .form-group.row
+        .col-md-12.checkbox
+          = f.check_box :remember_me
+          = f.label :remember_me
 
     .actions
-      = f.submit "Log in", class: 'form-control btn btn-primary'
-
-  = render "devise/shared/links"
+      = f.submit "Log in", class: 'btn btn-primary'
+  .margin20top
+    hr
+    = render "devise/shared/links"
