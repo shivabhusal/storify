@@ -1,0 +1,42 @@
+.panel.panel-default
+  .panel-heading
+    a.accordion-toggle.collapsed data-toggle="collapse" href="#category_#{order.number}"
+      | Order Number:&nbsp;
+      = order.number
+    span.pull-right
+      | Price: #{number_to_currency order.total}
+    span.pull-right.padding5right
+      | Tax: #{number_to_currency order.total_tax} |
+    span.pull-right.padding5right
+      | Gross: #{number_to_currency order.total_tax + order.total} |
+
+    span.padding5right.pull-right
+      span.label.label-info
+        | #{order.status}
+      |  |
+
+    span.padding5right.pull-right
+      span.label.label-success
+        | payment-#{order.payment_status}
+      |  |
+  .panel-collapse.collapse.out id="category_#{order.number}"
+    ul.list-group
+      - order.line_items.each do |item|
+        li.list-group-item
+          .row
+            .col-md-3
+              = link_to item.product do
+                = image_tag item.product.first_image, class: 'img-responsive', alt: item.product.name
+            .col-md-8
+              h2
+                = link_to item.product.name, item.product
+              table#product-properties.table.table-striped data-hook=""
+                tbody
+                  tr.even
+                    td
+                      strong SKU
+                    td = item.product.sku
+                  tr.odd
+                    td
+                      strong Price
+                    td = number_to_currency item.product.selling_price

@@ -17,10 +17,6 @@
             td
               strong Price
             td = number_to_currency @product.selling_price
-          tr.even
-            td
-              strong Material
-            td 600 Denier Polyester
       .col-md-12
         - if @product.id.in?(@cart.products.ids)
           span.btn.btn-info.disabled
