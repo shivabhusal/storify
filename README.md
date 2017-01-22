@@ -18,7 +18,8 @@ If you wish to do the following jobs with single command then see below
   - Creating DB
   - Migration
   - Seed
-#### Soloution:
+
+#### Solution:
 execute this command
 ```bash
 $ echo "alias hard_reset_db='rails db:drop && rake db:create && rake db:migrate && rake db:reset'"  >> ~/.bash_aliases
