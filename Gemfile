@@ -43,6 +43,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails', '~> 4.6.3.1'
 
 gem 'devise'
+gem 'devise-authy'
 
 # Slim templates
 gem 'slim-rails', '~> 3.1.1'
@@ -59,6 +60,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'sunspot_rails', '~> 2.2.7'
 gem 'bootstrap-slider-rails'
 gem 'kaminari'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

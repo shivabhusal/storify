@@ -3,6 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     create_table :orders do |t|
       t.string      :number
       t.float       :total
+      t.references  :user,            foreign_key: true
       t.float       :total_tax
       t.integer     :status,          default: 0
       t.float       :adjustment_total

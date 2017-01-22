@@ -1,0 +1,23 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.badge,
+.label {
+  font-weight: bold;
+}
+
+.badge {
+  background-color: #b0bcd4;
+}
+
+.badge.up {
+  position: relative;
+  top: -10px;
+  padding: 3px 6px;
+  margin-left: -10px;
+}

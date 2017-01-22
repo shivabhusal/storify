@@ -2,10 +2,9 @@ header
   ul.nav.nav-tabs
     li.active role="presentation"
       = link_to 'Home', root_path
-    li role="presentation"
-      a href="#"  Profile
-    li role="presentation"
-      a href="#"  Messages
+    - if current_user&.customer?
+      li role="presentation"
+        = link_to 'My Orders', orders_path
 
   .pull-right
 

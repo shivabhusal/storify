@@ -13,10 +13,31 @@
  *= require_self
  *= require_tree .
  */
-
 //"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-slider";
 @import "bootstrap-multiselect";
+@import "intlTelInput";
 @import "spacers";
+@import 'font-awesome';
+
+.iti-flag {
+  background-image: url(asset-path('flags.png'));
+}
+
+.with-busy-icon {
+  position: relative;
+  display: inline-block;
+  &:after {
+    background-size: cover;
+    content: ' ';
+    display: block;
+    right: -30px;
+    top: -4px;
+    background-image: url(image-path('busy.gif'));
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  }
+}

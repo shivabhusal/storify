@@ -1,0 +1,23 @@
+h2.with-busy-icon
+  | One touch verification in progress ..
+.row
+  .col-md-5
+    p
+      | A one touch verification request has been sent to you mobile
+      |  device already. Please approve the request to proceed further.
+    p Thanks!
+  .col-md-6
+
+hr
+h2 Verify via Soft-token
+p
+  | If you are having difficulty with One-Touch, you can verify via soft-token
+.well
+  = form_tag checkout_cart_path, method: :post, id: 'verification-form' do
+    .row
+      .form-group.col-md-6
+        = label_tag :token, 'Token from Mobile Device'
+        = text_field_tag :token, nil, class: 'form-control'
+
+    = link_to 'Send token Via SMS', authy_send_token_via_sms_path, remote: true, method: :post
+    = submit_tag 'Verify', id: 'verify-token', class: 'margin20left'

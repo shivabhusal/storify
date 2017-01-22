@@ -1,0 +1,7 @@
+- if current_user.orders.present?
+  h2 Orders
+  .panel-group.m-b.margin20top
+    - current_user.orders.each do |order|
+      = render order
+- else
+  h2 You have made no orders yet!
