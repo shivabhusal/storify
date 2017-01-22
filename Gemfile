@@ -31,9 +31,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 gem 'mini_magick', '~> 4.5.1'
 
 # Use Bootstrap as CSS Framework
@@ -80,8 +77,8 @@ group :test do
   gem 'rails-controller-testing'
 end
 
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 group :development do
-  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
   gem 'rubocop', require: false
   gem 'mailcatcher', require: false # Catches emails in localhost, See https://mailcatcher.me/
   gem 'zeus', require: false
@@ -92,6 +89,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+
+  gem 'capistrano', '3.7.1'
+  gem 'capistrano3-puma'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
