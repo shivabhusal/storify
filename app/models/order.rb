@@ -5,6 +5,7 @@
 #  id               :integer          not null, primary key
 #  number           :string
 #  total            :float
+#  user_id          :integer
 #  total_tax        :float
 #  status           :integer          default("0")
 #  adjustment_total :float

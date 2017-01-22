@@ -37,13 +37,13 @@
 #  authy_enabled           :boolean          default("false")
 #
 
-class Customer < User
-  has_one :cart
-  has_many :orders, foreign_key: :user_id
-
-  def customer?
-    true
+FactoryGirl.define do
+  factory :customer do
+    email { Faker::Internet.email }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    country_code { ['1', '977', '61'].sample }
+    phone_number { Faker::PhoneNumber.cell_phone }
+    gender { ['male', 'female'].sample }
   end
-
-  private
 end
