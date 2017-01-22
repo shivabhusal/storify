@@ -17,17 +17,17 @@
 
             b.margin20left.padding10right
               = number_to_currency Config::LowerLimit
-            input [
-              name="price"
-              id="search-price-slider"
-              type="text" class="span2"
-              value=""
-              data-slider-min="10"
-              data-slider-max="1000"
-              data-slider-step="5"
-              data-slider-value="[#{params[:price] || '1,145'}]"]
+              input [
+                name="price"
+                id="search-price-slider"
+                type="text" class="span2"
+                value=""
+                data-slider-min="10"
+                data-slider-max="1000"
+                data-slider-step="5"
+                data-slider-value="[#{params[:price] || '1,145'}]"]
 
-            b.padding10left
-              = number_to_currency Config::UpperLimit
+              b.padding10left
+                = number_to_currency Config::UpperLimit
             button.margin20left.btn.btn-default[type="submit"]
               | Search

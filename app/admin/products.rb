@@ -1,6 +1,10 @@
 ActiveAdmin.register Product do
+  before_filter :only => [:show, :edit, :update, :delete] do
+    @product = Product.friendly.find(params[:id])
+  end
+
   menu :priority => 2
-  permit_params :name, :description, :author, :selling_price, :cost_price, :available_from, :available_upto
+  permit_params :name, :description, :author, :selling_price, :cost_price, :available_from, :available_upto, pictures_attributes: [:id, :payload, :name, :_destroy]
 
   scope :all, :default => true
 
@@ -36,7 +40,7 @@ ActiveAdmin.register Product do
 
   sidebar :product_stats, :only => :show do
     attributes_table_for resource do
-      row("Total Sold") { resource.orders.count }
+      row("Total Sold") { resource.line_items.sum(&:quantity) }
       # row("Dollar Value") { number_to_currency LineItem.where(:product_id => resource.id).sum(:price) }
     end
   end
@@ -60,10 +64,18 @@ ActiveAdmin.register Product do
       input :selling_price
       input :payload
       input :available_from, label: "Publish Post At"
-      input :available_upto, label: "Publish Post At"
+      input :available_upto, label: "Publish Post UpTo"
       li "Created at #{f.object.created_at}" unless f.object.new_record?
       input :categories
     end
+
+    f.inputs 'Product Images' do
+      f.has_many :pictures, allow_destroy: true do |t|
+        t.input :payload, hint: image_tag(t.object.payload, width: 100)
+        t.input :name
+      end
+    end
+
     actions
   end
 

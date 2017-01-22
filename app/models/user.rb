@@ -45,7 +45,7 @@ class User < ApplicationRecord
 
   validates_presence_of :email, :phone_number, :gender, :country_code
   validates :email, format: {with: Config::VALID_EMAIL_REGEX}
-  validates_uniqueness_of :email, :phone_number
+  validates_uniqueness_of :email
 
   mount_uploader :avatar, AvatarUploader
   enum status: [:active, :inactive]
@@ -56,6 +56,10 @@ class User < ApplicationRecord
 
   def customer?
     false
+  end
+
+  def full_name
+    [first_name, last_name].join(' ')
   end
 
   def update_authy_id

@@ -1,6 +1,5 @@
-header.row
-  .col-xs-10
-    = render 'search_bar'
+header
+  = render 'search_bar'
 
 section
   / This will show the navigation buttons
@@ -11,8 +10,11 @@ section
   / This will render the products
   hr
   .products
-    - @products.each do |product|
-      = render 'product', product: product
+    - if @products.present?
+      - @products.each do |product|
+        = render 'product', product: product
+    - else
+      h2 No result found
   .clearfix
   hr
   .pagination

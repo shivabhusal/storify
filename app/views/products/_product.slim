@@ -5,7 +5,7 @@
     .panel.panel-default
       .panel-body.text-center.product-body
         = link_to product_path(product) do
-          = image_tag product.payload, class: 'center-block img-responsive', width: 200
+          = image_tag product.first_image, class: 'center-block img-responsive', width: 200
           br
           span.info itemprop="name" title="#{product.name}"
             = product.name

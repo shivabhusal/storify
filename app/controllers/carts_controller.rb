@@ -9,12 +9,14 @@ class CartsController < ApplicationController
 
   def create
     session[:cart_id] = Cart.create(cart_params).id
+    flash[:notice] = 'Item added to cart successfully.'
     redirect_to :back
   end
 
   def update
     cart = Cart.find(session[:cart_id])
     cart.update(cart_params)
+    flash[:notice] = 'Item added to cart successfully.'
     redirect_to :back
   end
 
@@ -74,7 +76,7 @@ class CartsController < ApplicationController
   end
 
   def cart_params
-    params.require(:cart).permit(cart_items_attributes: [:product_id])
+    params.require(:cart).permit(cart_items_attributes: [:id, :product_id])
   end
 
   def valid_token?
