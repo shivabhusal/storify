@@ -6,7 +6,7 @@ $types: margin padding;
 /* Eg: .padding10top */
 @each $type in $types {
   @each $position in $positions {
-    @for $index from 0 through 20 {
+    @for $index from 0 through 30 {
       $value: $index * 5;
       .#{$type}#{$value}#{$position} {
         #{$type}-#{$position}: #{$value}px;
@@ -34,5 +34,13 @@ $types: margin padding;
   $value: $index * 25;
   .min#{$value}height {
     min-height: #{$value}px;
+  }
+}
+
+/* Eg: .width20 */
+@for $index from 1 through 30 {
+  $value: $index * 5;
+  .width#{$value} {
+    width: #{$value + '%'} !important;
   }
 }

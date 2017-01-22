@@ -6,15 +6,18 @@ html.app lang="en"
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
 
-  body(class="body #{controller_name} #{action_name}")
+  body(class="body #{controller_name.gsub(/devise_authy/, '')} #{action_name}")
     .container-fluid
-      = render "header"
+      = render 'header'
+      .clearfix
       = render 'flash_message'
-      .col-md-2
-        = render 'sidebar'
-      .col-md-9
-        section.scrollable.padder
-          = yield
+
+      .row
+        .col-md-3
+          = render 'sidebar'
+        .col-md-9
+          section.scrollable.padder
+            = yield
       .footer-container
         = render 'footer'
 

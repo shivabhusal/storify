@@ -20,5 +20,7 @@ class ProductsController < ApplicationController
 
       paginate :page => params[:page], :per_page => Product::PerPage
     end.results
+
+    render :index
   end
 end

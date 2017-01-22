@@ -1,11 +1,11 @@
-.panel.panel-default.margin100top
+.panel.panel-default.margin150top
   .panel-heading Categories
   .panel-body
-  ul.list-group
-    - @categories.each do |category|
-      a href=""
-        li.list-group-item #{category.name}
-      ul
-        - category.children.each do|child_cat|
-          = link_to search_products_path('search-categories': [child_cat.id]) do
-            li.list-group-item #{child_cat.name}
+    ul.list-group
+      - @categories.each do |category|
+        a href=""
+          li.list-group-item #{category.name}
+        ul
+          - category.children.each do|child_cat|
+            = link_to search_products_path('search-categories': [child_cat.id]) do
+              li.list-group-item #{child_cat.name}

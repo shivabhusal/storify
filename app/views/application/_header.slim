@@ -1,20 +1,29 @@
 header
-  ul.nav.nav-tabs
-    li.active role="presentation"
-      = link_to 'Home', root_path
+  = link_to root_path do
+    = image_tag 'logo.png', class: 'logo img-responsive pull-left'
+
+  .pull-right.margin5top
     - if current_user&.customer?
-      li role="presentation"
-        = link_to 'My Orders', orders_path
+      = link_to orders_path, class: 'btn btn-default margin5left' do
+        i.fa.fa-truck
+        |  My Orders
+      = link_to orders_path, class: 'btn btn-default margin5left'do
+        i.fa.fa-user
+        | &nbsp;
+        = current_user.first_name
+        |  's Profile
 
-  .pull-right
-
-    = link_to cart_path, class: 'btn btn-primary' do
-      | Cart
-      span.badge = @cart.items.count
+    = link_to cart_path, class: 'btn btn-default margin5left' do
+      i.fa.fa-shopping-cart
+      |  Cart &nbsp;
+      span.badge
+        = @cart.items.count
     - if current_user && current_user&.admin?
-      = link_to 'Goto Dashboard', super_user_dashboard_path, class: 'btn btn-info'
+      = link_to 'Goto Dashboard', super_user_dashboard_path, class: 'btn btn-default margin5left'
     - if current_user.present?
-      = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-info'
+      = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-default margin5left'
     - else
-      = link_to 'Sign In', new_user_session_path, class: 'btn btn-primary'
-      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info'
+      = link_to new_user_session_path, class: 'btn btn-default margin5left' do
+        i.fa.fa-sign-in
+        |  Sign In
+      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-default margin5left'

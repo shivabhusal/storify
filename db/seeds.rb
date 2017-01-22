@@ -10,6 +10,8 @@ user = {
     email:                 'admin@storify.com',
     first_name:            'The Admin',
     last_name:             'Last Name',
+    country_code:          '1',
+    phone_number:          '9843344323',
     gender:                'male',
     password:              'password',
     password_confirmation: 'password',
@@ -149,7 +151,6 @@ Product.create({
                    categories:       [doc, temp, Category.find_by_name('Mechanical')]
 
                })
-
 
 
 Product.create({

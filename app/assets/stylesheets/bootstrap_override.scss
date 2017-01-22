@@ -21,3 +21,24 @@ h1, h2, h3 {
   padding: 3px 6px;
   margin-left: -10px;
 }
+
+.panel{
+  background: #fff;
+}
+
+.body {
+  .list-group-item{
+    border: none;
+  }
+}
+
+.btn-primary {
+  color: #fff !important;
+  background-color: #177bbb;
+  border-color: #177bbb;
+}
+
+.btn.btn-danger{
+
+  color: #fff !important;
+}
