@@ -8,10 +8,31 @@
 - Ruby Version: `2.3.1p112`
 - Rails Version: `5.0.1`
 - PostGreSQL: ` 9.5.5`
+- Solr Engine
+- Puma as App-server
+- Nginx as Webserver
+
 ## Installation
- [TODO] to be updated soon
- 
+### In Production
+- Install Solr in `Ubuntu`
+    - using lates Java runtime for `solr`
+        - `$ sudo apt-get install openjdk-8-jre`
+    - Install Tomcat & Solr (You can’t avoid this one)
+        - `$ sudo apt-get install solr-tomcat`
+    - start tomcat server
+        - `$ sudo /etc/init.d/tomcat7 start`
+        - `[ ok ] Starting tomcat7 (via systemctl): tomcat7.service.`
+    - Ok it is done !
+        - Solr server responds at `http://localhost:8080/solr`
+        - and the config & index will be stored at : `/usr/share/solr/`
+    - [see this for more information](https://github.com/sunspot/sunspot/wiki/Configure-Solr-on-Ubuntu,-the-quickest-way)
+- Deployment
+    - Capistrano script is all set and ready
+    - tweak according to your need; may be details like `server IP`, `deploy branch`. etc
+    - `cap production deploy IP=xx.85.xx.104`
+
 Note: Make sure the `solr` instance is up and running for every operations like `db:reset`, `db:seed`, or running application.
+
 ## Hacks
 If you wish to do the following jobs with single command then see below 
   - Droping DB
