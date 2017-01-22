@@ -1,6 +1,6 @@
 .product-page.margin30top
   .col-md-2
-    = image_tag @product.pictures.first || Config::DefaultCoverFileName,
+    = image_tag @product.first_image,
         class: 'img-rounded img-responsive'
   .col-md-10
     h2 = @product.name

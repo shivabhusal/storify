@@ -25,12 +25,13 @@
 #
 
 class Product < ApplicationRecord
-  PerPage = 2
+  PerPage = 8
   paginates_per PerPage
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   has_many :pictures, as: :imageable
+  accepts_nested_attributes_for :pictures, :allow_destroy => true
 
   has_many :product_categories
   has_many :categories, through: :product_categories

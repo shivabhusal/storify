@@ -1,0 +1,33 @@
+/.search-bar.margin40top.margin40bottom
+/  = form_tag search_products_path, method: :get, class: 'row' do
+/    .col-md-12.form-group
+/      = text_field_tag 'q', nil, placeholder: 'I am looking for ...', class: 'form-control width75 pull-left'
+/      = submit_tag 'Search', class: 'btn btn-default width20 pull-right'
+
+.navbar.navbar-default
+  .container-fluid
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      = form_tag search_products_path, class: 'navbar-form navbar-left', method: :get do
+        ul.nav.navbar-nav
+          = select_tag 'search-categories',
+              options_from_collection_for_select(@categories, 'id','name', params['search-categories']),
+              prompt: 'Categories', multiple: true
+          .form-group.margin20left
+            input.form-control[name="q" type="text" placeholder="Search" value="#{params[:q]}"]
+
+            b.margin20left.padding10right
+              = number_to_currency Config::LowerLimit
+              input [
+                name="price"
+                id="search-price-slider"
+                type="text" class="span2"
+                value=""
+                data-slider-min="10"
+                data-slider-max="1000"
+                data-slider-step="5"
+                data-slider-value="[#{params[:price] || '1,145'}]"]
+
+              b.padding10left
+                = number_to_currency Config::UpperLimit
+            button.margin20left.btn.btn-default[type="submit"]
+              | Search

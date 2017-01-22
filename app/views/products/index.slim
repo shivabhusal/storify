@@ -1,5 +1,21 @@
-.search-bar
-  = render 'search'
-= paginate @products
-- @products.each do |product|
-  = render 'product', product: product
+header
+  = render 'search_bar'
+
+section
+  / This will show the navigation buttons
+  .pagination.min100height
+    = paginate @products
+  .clearfix
+
+  / This will render the products
+  hr
+  .products
+    - if @products.present?
+      - @products.each do |product|
+        = render 'product', product: product
+    - else
+      h2 No result found
+  .clearfix
+  hr
+  .pagination
+    = paginate @products

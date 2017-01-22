@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders
-
+  get '/profile', to: 'profile#show'
   post "authy/callback"
   get "authy/status" => 'authy#one_touch_status'
   post "authy/send_token_via_sms"

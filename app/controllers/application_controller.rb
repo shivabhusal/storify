@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_categories
-    # binding.pry
     @categories = Category.master
   end
 

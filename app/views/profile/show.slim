@@ -1,0 +1,25 @@
+h2 My profile
+.row
+  .col-sm-3
+    = image_tag current_user.avatar, class: 'img-responsive'
+    .btn.btn-default Change Photo
+  .col-sm-8
+    table.table.table-striped
+      tr
+        th Name
+        td = current_user.full_name
+      tr
+        th Gender
+        td = current_user.gender.titleize
+      tr
+        th Country Code
+        td = current_user.country_code
+      tr
+        th Phone
+        td = current_user.phone_number
+      tr
+        th Name
+        td = current_user.full_name
+      tr
+        th Member Since
+        td = current_user.created_at.strftime('%m/%d/%Y')

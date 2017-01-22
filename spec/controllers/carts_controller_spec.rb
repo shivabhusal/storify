@@ -13,7 +13,6 @@ RSpec.describe CartsController, type: :controller do
       it 'should convert the carts into order items' do
         sign_in(customer)
         @request.session[:cart_id] = cart.id
-        # binding.pry
         post :checkout
         expect(Order.count).to eq(1)
         expect(LineItem.count).to eq(2)
@@ -22,7 +21,6 @@ RSpec.describe CartsController, type: :controller do
       it 'should delete the carts' do
         sign_in(customer)
         @request.session[:cart_id] = cart.id
-        # binding.pry
         post :checkout
         expect(Cart.count).to eq(0)
         expect(CartItem.count).to eq(0)

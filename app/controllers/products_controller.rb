@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @products = Product.all.page(params[:page])
+    @products = Product.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -20,5 +20,7 @@ class ProductsController < ApplicationController
 
       paginate :page => params[:page], :per_page => Product::PerPage
     end.results
+
+    render :index
   end
 end
