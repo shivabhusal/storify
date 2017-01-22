@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:checkout, :pre_checkout]
-  before_action :authenticate_only_customer!, only: [:checkout]
+  before_action :authenticate_only_customer!, only: [:checkout, :pre_checkout]
   before_action :verify_token, only: [:checkout]
   before_action :no_empty_cart!, only: [:checkout, :pre_checkout]
 
@@ -9,7 +9,7 @@ class CartsController < ApplicationController
 
   def create
     session[:cart_id] = Cart.create(cart_params).id
-    flash[:notice] = 'Item added to cart successfully.'
+    flash[:notice]    = 'Item added to cart successfully.'
     redirect_to :back
   end
 
@@ -41,6 +41,8 @@ class CartsController < ApplicationController
         id:      current_user.authy_id,
         message: "Request to verify checkout to Storify app",
         details: {
+            'Gross Amount'  => @cart.items.total_amount + @cart.items.total_tax_amount,
+            'Products' => @cart.products.map(&:name).to_s,
             'Email Address' => current_user.email,
         }
     )

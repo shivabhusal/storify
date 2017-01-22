@@ -1,7 +1,9 @@
 .product-page.margin30top
   .col-md-2
-    = image_tag @product.first_image,
-        class: 'img-rounded img-responsive'
+    - @product.pictures.each do |pic|
+      = link_to pic.payload.url, target: '_blank' do
+        = image_tag pic.payload,
+            class: 'img-rounded thumbnail img-responsive'
   .col-md-10
     h2 = @product.name
     .well
@@ -17,6 +19,13 @@
             td
               strong Price
             td = number_to_currency @product.selling_price
+          tr.even
+            td
+              strong Category
+            td
+              - @product.categories.each do |cat|
+                span.margin5left.label.label-info = cat.name
+                |  ,
       .col-md-12
         - if @product.id.in?(@cart.products.ids)
           span.btn.btn-info.disabled

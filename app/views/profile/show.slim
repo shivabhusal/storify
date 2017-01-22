@@ -9,6 +9,9 @@ h2 My profile
         th Name
         td = current_user.full_name
       tr
+        th Email
+        td = current_user.email
+      tr
         th Gender
         td = current_user.gender.titleize
       tr
@@ -17,9 +20,6 @@ h2 My profile
       tr
         th Phone
         td = current_user.phone_number
-      tr
-        th Name
-        td = current_user.full_name
       tr
         th Member Since
         td = current_user.created_at.strftime('%m/%d/%Y')

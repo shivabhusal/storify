@@ -1,4 +1,6 @@
 ActiveAdmin.register Category do
+  permit_params :name, :description, :parent_id
+
   form do |f|
     f.inputs "Category details" do
       f.input :name

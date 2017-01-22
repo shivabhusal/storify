@@ -41,7 +41,7 @@ class User < ApplicationRecord
   devise :authy_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :lockable, :timeoutable
-  after_create :update_authy_id
+  after_save :update_authy_id
 
   validates_presence_of :email, :phone_number, :gender, :country_code
   validates :email, format: {with: Config::VALID_EMAIL_REGEX}
@@ -69,6 +69,6 @@ class User < ApplicationRecord
         cellphone: phone_number,
         country_code: country_code
     )
-    self.update(authy_id: authy.id, authy_enabled: true) if authy.present?
+    self.update(authy_id: authy.id) if authy.present?
   end
 end

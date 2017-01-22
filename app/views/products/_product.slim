@@ -1,9 +1,9 @@
-#product.col-md-3.col-sm-6.col-xs-6.product-list-item [data-hook="products_list_item"
+#product.col-md-4.col-sm-6.col-xs-6.product-list-item [data-hook="products_list_item"
   itemscope=""
   itemtype="https://schema.org/Product" ]
 
     .panel.panel-default
-      .panel-body.text-center.product-body
+      .panel-body.text-center.product-body.min350height
         = link_to product_path(product) do
           = image_tag product.first_image, class: 'center-block img-responsive', width: 200
           br

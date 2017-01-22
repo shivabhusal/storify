@@ -63,6 +63,10 @@ class Product < ApplicationRecord
     pictures.first&.payload || Config::DefaultCoverFileName
   end
 
+  def first_image_thumb
+    pictures.first&.payload.thumb || Config::DefaultCoverFileName
+  end
+
   private
   # Try building a slug based on the following fields in
   # increasing order of specificity.

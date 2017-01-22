@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users,
-             :controllers => { registrations: 'devise_override/registrations' },
+             :controllers => {
+                 :registrations => 'devise_override/registrations',
+                 :sessions      => 'devise_override/sessions'
+             },
              :path_names  => {
                  :verify_authy              => "/verify-token",
                  :enable_authy              => "/enable-two-factor",

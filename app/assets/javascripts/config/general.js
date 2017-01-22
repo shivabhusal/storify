@@ -10,5 +10,5 @@ $.showFlashMessage = function (message, type) {
       '<a class="close" href="#" data-dismiss="alert" aria-label="close"> &times</a>' +
       message +
       '</div>';
-  $(bar).insertAfter('header')
+  $(bar).insertAfter('.placeholder-for-flash')
 };

@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
   end
 
   menu :priority => 2
-  permit_params :name, :description, :author, :selling_price, :cost_price, :available_from, :available_upto, pictures_attributes: [:id, :payload, :name, :_destroy]
+  permit_params :name, :description, :author, :payload, :selling_price, :cost_price, :available_from, :available_upto, pictures_attributes: [:id, :payload, :name, :_destroy]
 
   scope :all, :default => true
 
@@ -23,7 +23,7 @@ ActiveAdmin.register Product do
   index :as => :grid do |product|
     div do
       a :href => super_user_product_path(product) do
-        image_tag(product.pictures.first || Config::DefaultCoverFileName, width: 200)
+        image_tag(product.first_image || Config::DefaultCoverFileName, width: 200)
       end
     end
     a truncate(product.name), :href => super_user_product_path(product)
@@ -36,7 +36,16 @@ ActiveAdmin.register Product do
     end
   end
 
-  show :name => :name
+  show do
+    default_main_content
+    ul do
+      resource.pictures.each do |img|
+        li class: 'col-md-4' do
+          image_tag(img.payload, class: 'thumbnail img-responsive')
+        end
+      end
+    end
+  end
 
   sidebar :product_stats, :only => :show do
     attributes_table_for resource do
