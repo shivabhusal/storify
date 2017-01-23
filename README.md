@@ -33,6 +33,9 @@
 
 Note: Make sure the `solr` instance is up and running for every operations like `db:reset`, `db:seed`, or running application.
 
+## System Overview
+You can find the [Enhanced Entity Relationship Diagram(ERD)](erd.pdf) here. 
+
 ## Hacks
 If you wish to do the following jobs with single command then see below 
   - Droping DB
