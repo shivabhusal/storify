@@ -37,13 +37,25 @@
 #  authy_enabled           :boolean          default("false")
 #
 
-FactoryGirl.define do
-  factory :customer do
-    email { Faker::Internet.email }
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
-    country_code { ['1', '977', '61'].sample }
-    phone_number { Faker::PhoneNumber.cell_phone }
-    gender { ['male', 'female'].sample }
+require 'rails_helper'
+
+RSpec.describe Customer, type: :model do
+  it { should have_many(:orders).with_foreign_key(:user_id) }
+
+  it { should have_many(:carts).with_foreign_key(:user_id)}
+  it { should have_many(:orders).with_foreign_key(:user_id) }
+
+  describe '#customer?' do
+    let(:customer) { build :customer }
+    let(:admin) { build :admin }
+
+    it 'should return true for customer' do
+      expect(customer.customer?).to eq(true)
+    end
+
+    it 'should return false for non-customer' do
+      expect(admin.customer?).to eq(false)
+    end
   end
+
 end

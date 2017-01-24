@@ -37,37 +37,21 @@
 #  authy_enabled           :boolean          default("false")
 #
 
-class User < ApplicationRecord
-  devise :authy_authenticatable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,
-         :lockable, :timeoutable
-  after_save :update_authy_id, if: ->{phone_number_changed? || country_code_changed?}
+FactoryGirl.define do
+  factory :user do
+    email { Faker::Internet.email }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    country_code { ['1', '977', '61'].sample }
+    phone_number { Faker::PhoneNumber.cell_phone }
+    gender { ['male', 'female'].sample }
 
-  validates_presence_of :email, :phone_number, :gender, :country_code
-  validates :email, format: {with: Config::VALID_EMAIL_REGEX}
-  validates_uniqueness_of :email, :case_sensitive => false
+    factory :customer, class: Customer do
+      type 'Customer'
+    end
 
-  mount_uploader :avatar, AvatarUploader
-  enum status: [:active, :inactive]
-
-  def admin?
-    false
-  end
-
-  def customer?
-    false
-  end
-
-  def full_name
-    [first_name, last_name].join(' ')
-  end
-
-  def update_authy_id
-    authy = Authy::API.register_user(
-        email: email,
-        cellphone: phone_number,
-        country_code: country_code
-    )
-    self.update(authy_id: authy.id) if authy.present?
+    factory :admin, class: Admin do
+      type 'Admin'
+    end
   end
 end

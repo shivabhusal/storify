@@ -35,6 +35,12 @@ Note: Make sure the `solr` instance is up and running for every operations like 
 
 ## System Overview
 You can find the [Enhanced Entity Relationship Diagram(ERD)](erd.pdf) here. 
+## Declaration
+Storify uses [Authy 2Factor Authentication](https://www.authy.com/)'s Onetouch and Softtoken scheme to authentication crutial events like payment verifications. It uses the [authy-ruby gem](https://github.com/authy/authy-ruby).
+
+![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-softtoken.svg)
+![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-onecode.svg)
+![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-onetouch.svg)
 
 ## Hacks
 If you wish to do the following jobs with single command then see below 
