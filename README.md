@@ -42,6 +42,9 @@ Storify uses [Authy 2Factor Authentication](https://www.authy.com/)'s Onetouch a
 ![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-onecode.svg)
 ![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-onetouch.svg)
 
+It also uses `Rails DB`, so that you can view records in production and other environment.
+[http://localhost:3000/rails/db](http://localhost:3000/rails/db)
+
 ## Hacks
 If you wish to do the following jobs with single command then see below 
   - Droping DB

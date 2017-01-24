@@ -21,7 +21,7 @@ development: &default
   COUNTRY_CODE: 977
   IP:
   SECRET_KEY_BASE: a11390399be205a0424ce457444e8635eec935e1140215e207cbea4ca2678b7cad65b0815ef734adf7857a13b0ab530bfa5c9347dac70c08a9c0d480d1a7960b
-
+  RAILS_DB_PASSWORD:
 
 production:
   <<: *default

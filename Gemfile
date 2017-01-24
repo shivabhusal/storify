@@ -58,6 +58,7 @@ gem 'sunspot_rails', '~> 2.2.7'
 gem 'bootstrap-slider-rails'
 gem 'kaminari'
 gem 'figaro'
+gem 'rails_db'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

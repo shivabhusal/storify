@@ -84,7 +84,7 @@ RSpec.describe User, type: :model do
 
   describe 'after_save#update_authy_id' do
     let(:user) { create(:user) }
-    it 'should auto update the authy_id just after record is created' do
+    it 'should auto update the authy_id just areafter record is created' do
       expect(user.authy_id).to be_truthy
     end
 
