@@ -38,10 +38,6 @@ You can find the [Enhanced Entity Relationship Diagram(ERD)](erd.pdf) here.
 ## Declaration
 Storify uses [Authy 2Factor Authentication](https://www.authy.com/)'s Onetouch and Softtoken scheme to authentication crutial events like payment verifications. It uses the [authy-ruby gem](https://github.com/authy/authy-ruby).
 
-![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-softtoken.svg)
-![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-onecode.svg)
-![Code Climate](https://www.twilio.com/marketing/bundles/authy/img/device-onetouch.svg)
-
 It also uses `Rails DB`, so that you can view records in production and other environment.
 [http://localhost:3000/rails/db](http://localhost:3000/rails/db)
 
